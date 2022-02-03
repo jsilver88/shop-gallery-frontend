@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+
+:root {
+  --Dark-Gray: hsl(0, 0%, 63%);
+  --Black: hsl(0, 0%, 0%);
+  --White: hsl(0, 0%, 100%);
+  --Very-Dark-Gray: hsl(0, 0%, 27%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Spartan', sans-serif;
+  background-color: var(--White);
+  transition: background 0.3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  min-height: 100vh;
+  max-width: min(95%, 144rem);
+  margin: 0 auto;
+  position: relative;
+}
+
+h1,
+h2 {
+  color: hsl(0, 0%, 0%);
+  font-weight: 600;
+  letter-spacing: -1.67px;
+  font-size: 4rem;
+  line-height: 4.4rem;
+}
+
+p {
+  color: var(--Dark-Gray);
+  font-size: 1.2rem;
+  line-height: 2rem;
+  letter-spacing: -0.25px;
+  font-weight: 500;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6.4rem 0 0 6.4rem;
+  z-index: 10;
+}
+
+.logo {
+  margin-right: 5.6rem;
+}
+
+.nav-open,
+.nav-close {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+}
+
+li {
+  margin-right: 3.2rem;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--White);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -1rem;
+  left: 0;
+  background-color: var(--White);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  overflow-x: hidden;
+}
+
+.slider-container {
+  position: relative;
+  grid-column: 1/8;
+}
+
+.slider-img {
+  min-height: 53.4rem;
+  background: url('../images/desktop-image-hero-1.jpg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s all;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slider-img:nth-child(1) {
+  background: url('../images/desktop-image-hero-1.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.slider-img:nth-child(2) {
+  background: url('../images/desktop-image-hero-2.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.slider-img:nth-child(3) {
+  background: url('../images/desktop-image-hero-3.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.slider-img.active-photo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-btns {
+  display: flex;
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  z-index: 1;
+}
+
+.slider-arrow-btn {
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--Black);
+  transition: 0.3s background-color;
+  cursor: pointer;
+}
+
+.slider-arrow-btn:hover {
+  background-color: #444;
+}
+
+.slider-text-container {
+  grid-column: 8/13;
+  min-height: 53.4rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.slider-text-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12rem 10rem 15rem 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.slider-text-content.active-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.slider-arrow-link {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+
+  color: var(--Black);
+  transition: all 0.3s;
+}
+
+.slider-arrow-link span {
+  letter-spacing: 1rem;
+  font-size: 1.2rem;
+}
+
+.slider-arrow-link img {
+  margin-left: 4.3rem;
+}
+
+.slider-arrow-link:hover {
+  color: var(--Dark-Gray);
+}
+
+/* About */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 56rem 1fr;
+  position: relative;
+}
+
+.about-img-1 {
+  min-height: 31rem;
+  background: url('../images/image-about-dark.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-img-2 {
+  min-height: 31rem;
+  background: url('../images/image-about-light.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  padding: 6.8rem 4.8rem;
+}
+
+.about-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: -0.25px;
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .nav-open,
+  .nav-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar {
+    padding: 4.8rem 2.4rem;
+  }
+
+  .logo {
+    margin-left: 11rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 11rem;
+    padding: 0 2rem;
+    background: var(--White);
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-link {
+    color: var(--Black);
+  }
+
+  .slider {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .slider-container {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .slider-btns {
+    left: unset;
+    right: 0;
+  }
+
+  .slider-text-container {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .slider-text-content {
+    padding: 7.2rem 3.2rem;
+  }
+
+  .heading {
+    font-size: 2.8rem;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .about-img-1 {
+    grid-column: 1/2;
+  }
+
+  .about-text {
+    grid-column: 1/2;
+  }
+
+  .about-img-2 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+}
